@@ -1,0 +1,43 @@
+<h1>Ubicación del usuario:</h1>
+
+<div *ngIf="!permissionDenied">
+  <p>Latitud: {{ latitude }}</p>
+  <p>Longitud: {{ longitude }}</p>
+</div>
+
+<div *ngIf="permissionDenied && showPermissionMessage">
+  <p>No se ha otorgado permiso para acceder a la ubicación. Por favor, otorgue el permiso e intente nuevamente.</p>
+  <div *ngIf="browser === 'Chrome'">
+    <h2>Chrome <span *ngIf="isDesktopDevice"></span></h2>
+    <p>Para otorgar permisos de geolocalización en Google Chrome, sigue estos pasos:</p>
+    <ol>
+      <li>Haz clic en el icono de candado en la barra de direcciones. Puede estar a la izquierda o a la derecha de la URL del sitio web.</li>
+      <li>En el menú desplegable, busca la opción 'Configuración del sitio' o 'Configuración'.</li>
+      <li>En la configuración del sitio, busca la sección 'Ubicación' y selecciona 'Permitir' para otorgar permisos de geolocalización a este sitio web.</li>
+    </ol>
+  </div>
+  <div *ngIf="browser === 'Firefox'">
+    <h2>Firefox</h2>
+    <p>Si estás utilizando Mozilla Firefox, sigue estos pasos para otorgar permisos de geolocalización</p>
+    <ol>
+      <li>Haz clic en el icono de candado o el ícono de escudo en la barra de direcciones. Puede estar a la izquierda o a la derecha de la URL del sitio web.</li>
+      <li>En el menú desplegable, busca la opción 'Editar configuración de permisos'.</li>
+      <li>En la ventana de configuración de permisos, busca la sección 'Acceder a su ubicación' y selecciona 'Permitir' para otorgar permisos de geolocalización a este sitio web.</li>
+    </ol>
+  </div>
+  <div *ngIf="browser === 'Safari'">
+    <h2>Safari</h2>
+    <p>Para otorgar permisos de geolocalización en Safari, sigue estos pasos:</p>
+    <ol>
+      <li>Haz clic en el menú "Safari" en la barra de menú superior y selecciona "Preferencias".</li>
+      <li>Ve a la pestaña "Websites" (Sitios web) en la ventana de preferencias.</li>
+      <li>En el panel izquierdo, busca la sección "Ubicación" y haz clic en ella.</li>
+      <li>En el panel derecho, busca el sitio web para el cual deseas otorgar permisos de geolocalización.</li>
+      <li>Junto al sitio web, selecciona una de las siguientes opciones:</li>
+      <ul>
+        <li>"Pedir" para solicitar permiso cada vez que el sitio web intente acceder a la ubicación.</li>
+        <li></li>
+      </ul>
+    </ol>
+  </div>
+</div>

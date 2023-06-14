@@ -9,12 +9,14 @@ import { PushNotificationService } from 'src/app/services/push-notification.serv
 export class NotificacionComponent implements OnInit {
 
   messageReceived = '';
+  token = '';
 
   constructor(
     private notification: PushNotificationService
   ) {
-    notification.requestPermission().then(token => {
+    notification.requestPermission().then((token: any) => {
       console.log(token);
+      this.token = token;
     });
   }
 
